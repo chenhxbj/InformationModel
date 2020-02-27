@@ -1,0 +1,75 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+
+# Classes
+# -------
+
+ids:ConfigurationModel
+    a owl:Class;
+    rdfs:label "Configuration Model." @en ;
+    rdfs:comment "A Model to represent a Connector's configuration." @en ;
+
+# Properties
+# ----------
+
+ids:connectorDeployMode
+    a owl:ObjectProperty;
+    rdfs:label "connector Deploy Mode"@en;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:ConnectorMode;
+    rdfs:comment "Deploy mode of a Connector, e.g., test deployment vs. productive deployment."@en.
+
+# TODO: necessary? 
+ids:connectorStatus
+    a owl:ObjectProperty;
+    rdfs:label "connector Status"@en;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:ConnectorStatus;
+    rdfs:comment "Status of the connector. Possible values include online/ offline/ bad_configuration. "@en.
+
+ids:connectorProxy
+    a owl:ObjectProperty;
+    rdfs:label "connector Status"@en;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:Proxy;
+    rdfs:comment "Status of the connector. Possible values include online/ offline/ bad_configuration. "@en.
+
+# Connector Mode class
+# --------------------
+ids:ConnectorMode
+    a owl:Class;
+    rdfs:label "Connector Mode" @en;
+    rdfs:comment "Connector Mode class." @en.
+
+idsc:TEST_DEPLOYMENT
+    a ids:ConnectorMode;
+    rdfs:label "Test Deployment" @en. 
+    
+idsc:PRODUCTIVE_DEPLOYMENT
+    a ids:ConnectorMode;
+    rdfs:label "Productive Deployment" @en. 
+
+# ConnectorStatus class
+# ---------------------
+
+ids:ConnectorStatus
+    a owl:Class;
+    rdfs:label "Connector Status" @en;
+    rdfs:comment "Connector Status class." @en.
+    
+idsc:CONNECTOR_ONLINE
+    a ids:ConnectorStatus;
+    rdfs:label "Connector Online" @en.
+
+idsc:CONNECTOR_OFFLINE
+    a ids:ConnectorStatus;
+    rdfs:label "Connector Offline" @en.
+    
+idsc:CONNECTOR_BAD_CONFIGURED
+    a ids:ConnectorStatus;
+    rdfs:label "Connector Bad Configured" @en.
