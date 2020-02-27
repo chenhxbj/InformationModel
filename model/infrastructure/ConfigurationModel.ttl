@@ -16,6 +16,20 @@ ids:ConfigurationModel
     rdfs:comment "A Model to represent a Connector's configuration." @en ;
     .
 
+ids:ConnectorMode
+    a owl:Class;
+    rdfs:label "Connector Mode" @en;
+    rdfs:comment "Connector Mode class." @en;
+    .
+
+
+ids:ConnectorStatus
+    a owl:Class;
+    rdfs:label "Connector Status" @en;
+    rdfs:comment "Connector Status class." @en;
+    .
+    
+
 # Properties
 # ----------
 
@@ -41,12 +55,8 @@ ids:connectorProxy
     rdfs:range ids:Proxy;
     rdfs:comment "Status of the connector. Possible values include online/ offline/ bad_configuration. "@en.
 
-# Connector Mode class
-# --------------------
-ids:ConnectorMode
-    a owl:Class;
-    rdfs:label "Connector Mode" @en;
-    rdfs:comment "Connector Mode class." @en.
+# Connector Mode Instances
+# ------------------------
 
 idsc:TEST_DEPLOYMENT
     a ids:ConnectorMode;
@@ -56,14 +66,9 @@ idsc:PRODUCTIVE_DEPLOYMENT
     a ids:ConnectorMode;
     rdfs:label "Productive Deployment" @en. 
 
-# ConnectorStatus class
-# ---------------------
+# Connector Status Instances
+# --------------------------
 
-ids:ConnectorStatus
-    a owl:Class;
-    rdfs:label "Connector Status" @en;
-    rdfs:comment "Connector Status class." @en.
-    
 idsc:CONNECTOR_ONLINE
     a ids:ConnectorStatus;
     rdfs:label "Connector Online" @en.
