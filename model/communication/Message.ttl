@@ -34,6 +34,10 @@ ids:Message a owl:Class;
         idsm:constraint idsm:NotNull;
     ];
     idsm:validation [
+        idsm:forProperty ids:senderAgent;
+        idsm:constraint idsm:NotNull;
+    ];
+    idsm:validation [
         idsm:forProperty ids:recipientAgent;
         idsm:relationType idsm:OneToMany;
     ].
@@ -55,8 +59,8 @@ ids:issued
     a owl:DatatypeProperty;
     rdfs:label "issued"@en;
     rdfs:domain ids:Message;
-    rdfs:range xsd:dateTime;
-    rdfs:comment "Date of issuing the Message."@en.
+    rdfs:range xsd:dateTimeStamp;
+    rdfs:comment "Date (as xsd:dateTimeStamp) of issuing the Message."@en.
 
 ids:correlationMessage
     a owl:ObjectProperty;
