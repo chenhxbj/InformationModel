@@ -1,0 +1,18 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+
+# Connector Mode Instances
+# ------------------------
+
+idsc:NO_LOGGING
+    a ids:LogLevel;
+    rdfs:label "NO LOGGING" @en. 
+    
+idsc:MINIMAL_LOGGING
+    a ids:LogLevel;
+    rdfs:label "MINIMAL LOGGING" @en. 
+
+idsc:DEBUG_LEVEL_LOGGING
+    a ids:LogLevel;
+    rdfs:label "DEBUG LEVEL LOGGING" @en. 

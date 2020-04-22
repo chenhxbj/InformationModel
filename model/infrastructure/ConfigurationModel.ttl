@@ -12,24 +12,30 @@
 
 ids:ConfigurationModel
     a owl:Class;
+    # As a subclass of ids:Described, ConfigurationModel gains title and description properties
+    rdfs:subClassOf ids:Described ;     
     rdfs:label "Configuration Model." @en ;
     rdfs:comment "A Model to represent a Connector's configuration." @en ;
     .
 
-ids:ConnectorMode
+ids:ConnectorDeployMode
     a owl:Class;
-    rdfs:label "Connector Mode" @en;
-    rdfs:comment "Connector Mode class." @en;
+    rdfs:label "Connector Deploy Mode" @en;
+    rdfs:comment "Instances of this class describe the connector's deployement mode, e.g, if a Connector is deployed " @en;
     .
-
 
 ids:ConnectorStatus
     a owl:Class;
     rdfs:label "Connector Status" @en;
-    rdfs:comment "Connector Status class." @en;
+    rdfs:comment "Instances of this class describe the connector's current status. Statuses may include ONLINE, OFFLINE or BAD_CONFIGURED. " @en;
     .
     
-
+ids:LogLevel
+    a owl:Class;
+    rdfs:label "Log Level" @en;
+    rdfs:comment "Instances of this class describe the log level of the Configuration Model. Log levels may include NONE, MINIMAL or DEBUG. " @en;
+    .
+    
 # Properties
 # ----------
 
@@ -37,7 +43,7 @@ ids:connectorDeployMode
     a owl:ObjectProperty;
     rdfs:label "connector Deploy Mode"@en;
     rdfs:domain ids:ConfigurationModel;
-    rdfs:range ids:ConnectorMode;
+    rdfs:range ids:ConnectorDeployMode;
     rdfs:comment "Deploy mode of a Connector, e.g., test deployment vs. productive deployment."@en.
 
 # TODO: necessary? 
@@ -46,37 +52,49 @@ ids:connectorStatus
     rdfs:label "connector Status"@en;
     rdfs:domain ids:ConfigurationModel;
     rdfs:range ids:ConnectorStatus;
-    rdfs:comment "Status of the connector. Possible values include online/ offline/ bad_configuration. "@en.
+    rdfs:comment "Status of the connector."@en.
 
 ids:connectorProxy
-    a owl:ObjectProperty;
-    rdfs:label "connector Status"@en;
+    a owl:DatatypeProperty;
     rdfs:domain ids:ConfigurationModel;
     rdfs:range ids:Proxy;
-    rdfs:comment "Status of the connector. Possible values include online/ offline/ bad_configuration. "@en.
+    rdfs:label "connector proxy"@en ;
+    rdfs:comment "The proxy an ids:Connector uses for network communication."@en ;
+    .
 
-# Connector Mode Instances
-# ------------------------
-
-idsc:TEST_DEPLOYMENT
-    a ids:ConnectorMode;
-    rdfs:label "Test Deployment" @en. 
+ids:logLevel
+    a owl:ObjectProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:LogLevel;
+    rdfs:label "log level";
+    rdfs:comment "Configuration Model log Level. ";
+    .
     
-idsc:PRODUCTIVE_DEPLOYMENT
-    a ids:ConnectorMode;
-    rdfs:label "Productive Deployment" @en. 
+ids:trustStore
+    a owl:DatatypeProperty;
+    rdfs:label "trust Store";
+    rdfs:comment "Path to Trust Store containing necessary Connector certificates";
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:anyURI;
+    .
 
-# Connector Status Instances
-# --------------------------
-
-idsc:CONNECTOR_ONLINE
-    a ids:ConnectorStatus;
-    rdfs:label "Connector Online" @en.
-
-idsc:CONNECTOR_OFFLINE
-    a ids:ConnectorStatus;
-    rdfs:label "Connector Offline" @en.
+ids:keyStore
+    a owl:DatatypeProperty;
+    rdfs:label "key Store";
+    rdfs:domain ids:ConfigurationModel ;
+    rdfs:range xsd:anyURI;
+    .
     
-idsc:CONNECTOR_BAD_CONFIGURED
-    a ids:ConnectorStatus;
-    rdfs:label "Connector Bad Configured" @en.
+ids:appRoutes 
+    a owl:DatatypeProperty;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range xsd:anyURI;
+    rdfs:label "App Routes";
+    rdfs:comment "Referece to the IRI, where the app routes can be found.";
+    .
+
+ids:connectorDescription a owl:DatatypeProperty;
+    rdfs:label "connectorDescription"@en;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:Connector; 
+    rdfs:comment "The Connector RDF entity referred by the Configuration Model. "@en.

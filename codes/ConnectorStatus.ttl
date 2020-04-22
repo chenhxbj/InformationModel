@@ -1,0 +1,18 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsc: <https://w3id.org/idsa/code/> .
+
+# Connector Status Codes
+# ----------------------
+
+idsc:CONNECTOR_ONLINE
+    a ids:ConnectorStatus;
+    rdfs:label "Connector Online" @en.
+
+idsc:CONNECTOR_OFFLINE
+    a ids:ConnectorStatus;
+    rdfs:label "Connector Offline" @en.
+    
+idsc:CONNECTOR_BAD_CONFIGURED
+    a ids:ConnectorStatus;
+    rdfs:label "Connector Bad Configured" @en.

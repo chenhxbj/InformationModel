@@ -8,8 +8,7 @@
 # -------
 
 ids:DataApp
-    a owl:Class;
-    rdfs:subClassOf ids:Software;
+    a owl:Class; 
     idsm:abstract true;
     rdfs:label "DataApp"@en;
     rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en;.
@@ -20,7 +19,6 @@ ids:DataApp
 ids:SystemAdapter
     a owl:Class;
     rdfs:subClassOf ids:DataApp;
-    # idsm:abstract true;
     rdfs:label "System Adapter"@en;
     rdfs:comment "Data Apps that integrate sources and sinks of digital content maintained internally on Participant's premises with a Connector."@en.
     # May offer Data Processing capabilities, therefore not defined as disjoint
@@ -28,21 +26,35 @@ ids:SystemAdapter
 ids:DataProcessingApp
     a owl:Class;
     rdfs:subClassOf ids:DataApp;
-    # idsm:abstract true;
     rdfs:label "DataProcessingApp"@en;
     rdfs:comment "Data App for a (stateless) processing of digital content according to exposed software interfaces."@en.
 
 ids:DataAppPlugin
     a owl:Class;
     rdfs:subClassOf ids:Software;
-    # idsm:abstract true;
     rdfs:label "DataApp Plugin"@en;
     rdfs:comment "Add-on software extending a host Data App with a dedicated capability. The plugin depends on a particular version (range) of the host Data App which governs its integration, configuration and life-cycle."@en.
 
 ids:DataAppAsset
     a owl:Class;
     rdfs:subClassOf ids:Software;
-    # idsm:abstract true;
     rdfs:label "DataApp Asset"@en;
     rdfs:comment "Script code, algorithm or any other kind of interpreted software."@en.
 
+
+ids:appDescription
+    a owl:ObjectProperty ;
+    rdfs:label "app description" @en ;
+    rdfs:comment "References the corresponding ids:Resource, which contains descriptive metadata about the app." @en ;
+    rdfs:domain ids:DataApp ;
+    rdfs:range ids:SoftwareResource ;
+.
+
+ids:appEndpoint
+    a owl:ObjectProperty ;
+    rdfs:label "app endpoint" @en;
+    rdfs:comment "References endpoints of a App. Based on the app type, input, config, output endpoints need to be defined. See ids:AppEndpoint for details on endpoint description." @en;
+    rdfs:domain ids:DataApp ;
+    rdfs:range ids:AppEndpoint ;
+    .
+    

@@ -5,6 +5,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # Classes
 # -------
@@ -44,6 +45,17 @@ ids:InteractiveEndpoint
     ] ;
     owl:disjointWith ids:StaticEndpoint .
 
+
+ids:AppEndpoint
+    a owl:Class ;
+    rdfs:label "App Endpoint" @en ;
+    rdfs:comment "Endpoints of Apps in the IDS." @en ;
+    skos:note """Although ids:AppEndpoint has common properties with the ids:Endpoint class, rdfs:SubClassOf relations to ids:Endpoint is not recommend. ids:Resource reference ids:Endpoint.
+    With a SubClassOf relation, an ids:Resource could define an AppEndpoint, which is obviously not intended."""; 
+    rdfs:seeAlso ids:Endpoint ;
+.
+
+
 #ids:DataSink
 #    a owl:Class ;
 #    rdfs:subClassOf ids:Endpoint ;
@@ -64,7 +76,9 @@ ids:InteractiveEndpoint
 ids:endpointHost
     a owl:ObjectProperty;
     rdfs:label "endpoint host"@en;
-    rdfs:domain ids:Endpoint;
+    rdfs:domain [ owl:unionOf 
+                    (ids:Endpoint ids:AppEndpoint)
+                ];
     rdfs:range ids:Host;
     rdfs:comment "Network host that exposes resource content and Connector services via this endpoint."@en ;
     idsm:explanation
@@ -91,7 +105,9 @@ ids:endpointOperationBinding
 ids:path
     a owl:DatatypeProperty;
     rdfs:label "path"@en;
-    rdfs:domain ids:Endpoint;
+    rdfs:domain [ owl:unionOf 
+                    (ids:Endpoint ids:AppEndpoint)
+                ];
     rdfs:range xsd:string;
     rdfs:comment "Relative path, topic or queue at which the content is published by the related host."@en.
     # The property is mandatory for Artifact exposing Endpoints i.e. the only discriminating element
@@ -100,14 +116,25 @@ ids:path
 ids:inboundPath
     a owl:DatatypeProperty;
     rdfs:label "inbound topic"@en;
-    rdfs:domain ids:Endpoint;
+    rdfs:domain [ owl:unionOf 
+                    (ids:Endpoint ids:AppEndpoint)
+                ];
     rdfs:range xsd:string;
     rdfs:comment "Relative path used for inbound communication via this endpoint, i.e. input messages and faults only."@en.
 
 ids:outboundPath
     a owl:DatatypeProperty;
     rdfs:label "outbound topic"@en;
-    rdfs:domain ids:Endpoint;
+    rdfs:domain [ owl:unionOf 
+                    (ids:Endpoint ids:AppEndpoint)
+                ];
     rdfs:range xsd:string;
     rdfs:comment "Relative path used for outbound communication via this endpoint, i.e. output messages and faults only."@en.
 
+ids:appEndpointType
+    a owl:ObjectProperty;
+    rdfs:label "endpointType" @en ;
+    rdfs:comment "Endpoint type of the app. Possible values include INPUT, OUTPUT, CONFIG, PROCESS, STATUS" @en ;
+    rdfs:domain ids:AppEndpoint ;
+    rdfs:range ids:EndpointType ;
+    .
