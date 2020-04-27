@@ -6,21 +6,21 @@
 # ------------------------
 
 idsc:INPUT_ENDPOINT
-    a ids:EndpointType ;
+    a ids:AppEndpointType ;
     rdfs:label "Input Endpoint" @en. 
     
 idsc:OUTPUT_ENDPOINT
-    a ids:EndpointType ;
+    a ids:AppEndpointType ;
     rdfs:label "Output Endpoint" @en. 
 
 idsc:STATUS_ENDPOINT
-    a ids:EndpointType ;
+    a ids:AppEndpointType ;
     rdfs:label "Status Endpoint" @en. 
     
 idsc:CONFIG_ENDPOINT
-    a ids:EndpointType ;    
+    a ids:AppEndpointType ;    
     rdfs:label "Config Endpoint" @en. 
 
 idsc:PROCESSING_ENDPOINT
-    a ids:EndpointType ;
+    a ids:AppEndpointType ;
     rdfs:label "Processing Endpoint" @en. 

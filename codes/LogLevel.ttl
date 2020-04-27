@@ -5,6 +5,7 @@
 # Connector Mode Instances
 # ------------------------
 
+# ToDo: Specify what MINIMAL_LOGGING and DEBUG_LEVEL_LOGGING mean. 
 idsc:NO_LOGGING
     a ids:LogLevel;
     rdfs:label "NO LOGGING" @en. 

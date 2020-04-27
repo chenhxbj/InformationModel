@@ -50,11 +50,15 @@ ids:AppEndpoint
     a owl:Class ;
     rdfs:label "App Endpoint" @en ;
     rdfs:comment "Endpoints of Apps in the IDS." @en ;
-    skos:note """Although ids:AppEndpoint has common properties with the ids:Endpoint class, rdfs:SubClassOf relations to ids:Endpoint is not recommend. ids:Resource reference ids:Endpoint.
-    With a SubClassOf relation, an ids:Resource could define an AppEndpoint, which is obviously not intended."""; 
+    skos:note """Although ids:AppEndpoint has common properties with the ids:Endpoint class, rdfs:subClassOf relations to ids:Endpoint would not be appropriate. ids:Resources reference ids:Endpoint. With a rdfs:subClassOf relation, an ids:Resource could define an AppEndpoint, which is obviously not intended."""; 
     rdfs:seeAlso ids:Endpoint ;
 .
 
+ids:AppEndpointType
+    a owl:Class ;
+    rdfs:label "App Endpoint Type" @en ;
+    rdfs:comment "Instances of this class describe possible endpoint types of Apps in the IDS. " @en ;
+.
 
 #ids:DataSink
 #    a owl:Class ;
@@ -105,9 +109,7 @@ ids:endpointOperationBinding
 ids:path
     a owl:DatatypeProperty;
     rdfs:label "path"@en;
-    rdfs:domain [ owl:unionOf 
-                    (ids:Endpoint ids:AppEndpoint)
-                ];
+    rdfs:domain ids:Endpoint ;
     rdfs:range xsd:string;
     rdfs:comment "Relative path, topic or queue at which the content is published by the related host."@en.
     # The property is mandatory for Artifact exposing Endpoints i.e. the only discriminating element
@@ -138,3 +140,12 @@ ids:appEndpointType
     rdfs:domain ids:AppEndpoint ;
     rdfs:range ids:EndpointType ;
     .
+
+ids:appEndpointDescription
+    a owl:DatatypeProperty ;
+    rdfs:label "app endpoint description" @en ;
+    rdfs:comment "App endpoint description in plain text." @en ;
+    rdfs:domain ids:AppEndpoint ;
+    rdfs:range xsd:string ;
+    .
+
