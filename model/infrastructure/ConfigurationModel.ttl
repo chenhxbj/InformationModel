@@ -93,8 +93,17 @@ ids:appRoutes
     rdfs:comment "Referece to the IRI, where the app routes can be found.";
     .
 
-ids:connectorDescription a owl:DatatypeProperty;
-    rdfs:label "connectorDescription"@en;
+ids:connectorDescription 
+    a owl:ObjectProperty;
+    rdfs:label "Connector description"@en;
     rdfs:domain ids:ConfigurationModel;
     rdfs:range ids:Connector; 
-    rdfs:comment "The Connector RDF entity referred by the Configuration Model. "@en.
+    rdfs:comment "RDF self-description of an IDS Connector,  referred by the Configuration Model. "@en.
+
+ids:appRoute
+    a owl:ObjectProperty;
+    rdfs:label "app route"@en;
+    rdfs:comment "IDS app routes inside an IDS Connector"@en;
+    rdfs:domain ids:ConfigurationModel;
+    rdfs:range ids:AppRoute;
+.

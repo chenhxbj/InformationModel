@@ -1,0 +1,46 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix idsm: <https://w3id.org/idsa/metamodel/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+ids:AppRoute
+    a owl:Class;
+    rdfs:label "App Endpoint Route"@en;
+    rdfs:comment "Connectivity between IDS Apps inside a Connector may be expressed using a graph-like structure."@en ;
+.
+
+ids:appRouteStart
+    a owl:ObjectProperty;
+    rdfs:label "app route start"@en ;
+    rdfs:comment "Endpoint which services as the source of an app route."@en ;
+    rdfs:domain ids:AppRoute ;
+    rdfs:range ids:AppEndpoint ;
+.
+
+ids:appRouteEnd
+    a owl:DatatypeProperty;
+    rdfs:label "app route end";
+    rdfs:comment "Configuration details for an app endpoint route" ;
+    rdfs:domain ids:AppRoute ;
+    rdfs:range ids:AppEndpoint ;
+.
+
+ids:appRouteDescription
+    a owl:DatatypeProperty;
+    rdfs:label "app route end";
+    rdfs:comment "Description details of an app route" ;
+    rdfs:domain ids:AppRoute ;
+    rdfs:range xsd:string ;
+.
+
+ids:appRouteConfiguration
+    a owl:DatatypeProperty;
+    rdfs:label "app route configuration";
+    rdfs:comment "Configuration details of an app route" ;
+    rdfs:domain ids:AppRoute ;
+    rdfs:range xsd:string ;
+.

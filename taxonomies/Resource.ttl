@@ -106,3 +106,8 @@ ids:CollectionResource
     rdfs:label "Collection resource"@en ;
     rdfs:comment "Resource comprising a set of named (Map) or ordered (List) elements."@en .
 
+ids:AppResource
+    a owl:Class;
+    rdfs:subClassOf ids:Resource;
+    rdfs:label "App resource"@en ;
+    rdfs:comment "Resource comprising of IDS Apps."@en .

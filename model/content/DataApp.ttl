@@ -12,17 +12,16 @@ ids:DataApp
     a owl:Class; 
     idsm:abstract true;
     rdfs:label "DataApp"@en;
-    rdfs:comment "Self-contained, self-descriptive software package that is distributed via the App Store and deployed inside a Connector; provides access to data and data processing capa­bilities; the interface of a Data App is semantically described by the IDS Information Model."@en;.
-    # Purpose: mediation and processing of "data"
-    # rdfs:comment "Data processing or mediating software executed within the Connector runtime."@en .
-    # TODO: exposes at least one interface
+    rdfs:comment """Self-contained, self-descriptive software package that is distributed via the App Store and deployed
+        inside a Connector; provides access to data and data processing capabilities; the interface of a Data App is
+        semantically described by the IDS Information Model."""@en;.
+
 
 ids:SystemAdapterApp
     a owl:Class;
     rdfs:subClassOf ids:DataApp;
     rdfs:label "System Adapter App"@en;
     rdfs:comment "Data Apps that integrate sources and/or sinks of digital content maintained internally on Participant's premises with a Connector."@en.
-    # May offer Data Processing capabilities, therefore not defined as disjoint
 
 ids:SmartDataApp 
     a owl:Class;
@@ -55,7 +54,7 @@ ids:appDescription
     rdfs:label "app description" @en ;
     rdfs:comment "References the corresponding ids:Resource, which contains descriptive metadata about the app." @en ;
     rdfs:domain ids:DataApp ;
-    rdfs:range ids:SoftwareResource ;
+    rdfs:range ids:AppResource ;
 .
 
 ids:appEndpoint
@@ -66,13 +65,13 @@ ids:appEndpoint
     rdfs:range ids:AppEndpoint ;
     .
     
-ids:appApiDocumentation
+ids:appDocumentation
     a owl:DatatypeProperty ;
     rdfs:label "app Api documentation"@en ;
-    rdfs:comment "IRI reference to API documentation for an App." @en;
-    skos:note "An App may have a documentation, e.g., an OpenAPI REST documentation, as well as endpoint-specific documentations." @en;
+    rdfs:comment """IRI reference to API documentation for an App. An App may have multiple, technical
+    documentations, e.g., an overall OpenAPI REST documentation, as well as endpoint-specific documentations.""" @en;
     rdfs:domain [owl:unionOf 
-        (ids:DataApp ids:AppEndpoint)
+        (ids:DataApp ids:AppEndpoint ids:AppResource)
         ] ;
     rdfs:range xsd:anyURI ;
 .
