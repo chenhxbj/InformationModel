@@ -31,7 +31,7 @@ ids:appRouteEnd
 
 ids:appRouteDescription
     a owl:DatatypeProperty;
-    rdfs:label "app route end";
+    rdfs:label "app route description";
     rdfs:comment "Description details of an app route" ;
     rdfs:domain ids:AppRoute ;
     rdfs:range xsd:string ;

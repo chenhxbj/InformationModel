@@ -84,14 +84,6 @@ ids:keyStore
     rdfs:domain ids:ConfigurationModel ;
     rdfs:range xsd:anyURI;
     .
-    
-ids:appRoutes 
-    a owl:DatatypeProperty;
-    rdfs:domain ids:ConfigurationModel;
-    rdfs:range xsd:anyURI;
-    rdfs:label "App Routes";
-    rdfs:comment "Referece to the IRI, where the app routes can be found.";
-    .
 
 ids:connectorDescription 
     a owl:ObjectProperty;

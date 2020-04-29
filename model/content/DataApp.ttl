@@ -68,8 +68,8 @@ ids:appEndpoint
 ids:appDocumentation
     a owl:DatatypeProperty ;
     rdfs:label "app Api documentation"@en ;
-    rdfs:comment """IRI reference to API documentation for an App. An App may have multiple, technical
-    documentations, e.g., an overall OpenAPI REST documentation, as well as endpoint-specific documentations.""" @en;
+    rdfs:comment """IRI reference to App documentation. An App may have multiple documentations, e.g.,
+    an overall usage documentation, as well as endpoint-specific API documentations.""" @en;
     rdfs:domain [owl:unionOf 
         (ids:DataApp ids:AppEndpoint ids:AppResource)
         ] ;

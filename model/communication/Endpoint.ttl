@@ -50,7 +50,9 @@ ids:AppEndpoint
     a owl:Class ;
     rdfs:label "App Endpoint" @en ;
     rdfs:comment "Endpoints of Apps in the IDS." @en ;
-    skos:note """Although ids:AppEndpoint has common properties with the ids:Endpoint class, rdfs:subClassOf relations to ids:Endpoint would not be appropriate. ids:Resources reference ids:Endpoint. With a rdfs:subClassOf relation, an ids:Resource could define an AppEndpoint, which is obviously not intended."""; 
+    skos:note """Although ids:AppEndpoint has common properties with the ids:Endpoint class,
+    rdfs:subClassOf relations to ids:Endpoint would not be appropriate. ids:Resources reference ids:Endpoint.
+    With a rdfs:subClassOf relation, an ids:Resource could define an AppEndpoint, which is not intended.""";
     rdfs:seeAlso ids:Endpoint ;
 .
 
@@ -138,7 +140,7 @@ ids:appEndpointType
     rdfs:label "endpointType" @en ;
     rdfs:comment "Endpoint type of the app. Possible values include INPUT, OUTPUT, CONFIG, PROCESS, STATUS" @en ;
     rdfs:domain ids:AppEndpoint ;
-    rdfs:range ids:EndpointType ;
+    rdfs:range ids:AppEndpointType ;
     .
 
 ids:appEndpointDescription
