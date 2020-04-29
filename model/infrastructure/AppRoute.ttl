@@ -24,7 +24,7 @@ ids:appRouteStart
 ids:appRouteEnd
     a owl:DatatypeProperty;
     rdfs:label "app route end";
-    rdfs:comment "Configuration details for an app endpoint route" ;
+    rdfs:comment "Endpoint which services as the source of an app route." ;
     rdfs:domain ids:AppRoute ;
     rdfs:range ids:AppEndpoint ;
 .
