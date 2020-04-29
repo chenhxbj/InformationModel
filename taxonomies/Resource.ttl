@@ -111,3 +111,11 @@ ids:AppResource
     rdfs:subClassOf ids:Resource;
     rdfs:label "App resource"@en ;
     rdfs:comment "Resource comprising of IDS Apps."@en .
+
+ids:appEndpointDescription
+    a owl:ObjectProperty ;
+    rdfs:label "app endpoint description" @en;
+    rdfs:comment """"References endpoints an IDs App provides.""" @en;
+    rdfs:domain ids:DataApp ;
+    rdfs:range ids:AppEndpoint ;
+.

@@ -75,3 +75,12 @@ ids:appDocumentation
         ] ;
     rdfs:range xsd:anyURI ;
 .
+
+ids:appConfiguration
+    a owl:DatatypeProperty;
+    rdfs:domain ids:DataApp ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "app configuration"@en ;
+    rdfs:comment """IRI reference to file / service which is required for an app configuration.
+    E.g. in a image- and container-based App environment, this property may reference a file with build instructions. """@en;
+.

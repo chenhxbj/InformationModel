@@ -120,3 +120,7 @@ ids:CollectionRepresentation
     rdfs:label "Collection representation"@en ;
     rdfs:comment "Representation of a Collection, i.e. a Map or List of elements."@en .
 
+ids:AppRepresentation a owl:Class;
+   rdfs:subClassOf ids:Representation ;
+   rdfs:label "App Representation"@en ;
+   rdfs:comment "App representation"@en .

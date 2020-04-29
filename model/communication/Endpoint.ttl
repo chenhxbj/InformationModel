@@ -143,7 +143,7 @@ ids:appEndpointType
     rdfs:range ids:AppEndpointType ;
     .
 
-ids:appEndpointDescription
+ids:endpointInformation
     a owl:DatatypeProperty ;
     rdfs:label "app endpoint description" @en ;
     rdfs:comment "App endpoint description in plain text." @en ;
