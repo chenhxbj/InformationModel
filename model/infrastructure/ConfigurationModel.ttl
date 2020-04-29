@@ -30,7 +30,7 @@ ids:ConnectorStatus
     rdfs:comment "Instances of this class describe the connector's current status. Statuses may include idsc:ONLINE, idsc:OFFLINE or idsc:BAD_CONFIGURED." @en;
     .
     
-ids:LogLevel
+ids:ConfigurationModelLogLevel
     a owl:Class;
     rdfs:label "Log Level" @en;
     rdfs:comment "Instances of this class describe the log level of the Configuration Model. Log levels include idsc:NO_LOGGING, idsc:MINIMAL_LOGGING or idsc:DEBUG_LEVEL_LOGGING. " @en;
@@ -61,10 +61,10 @@ ids:connectorProxy
     rdfs:comment "The proxy an ids:Connector uses for network communication."@en ;
     .
 
-ids:logLevel
+ids:ConfigurationModelLogLevel
     a owl:ObjectProperty;
     rdfs:domain ids:ConfigurationModel;
-    rdfs:range ids:LogLevel;
+    rdfs:range ids:ConfigurationModelLogLevel;
     rdfs:label "log level";
     rdfs:comment "Configuration Model log Level. ";
     .
