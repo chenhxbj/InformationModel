@@ -116,6 +116,6 @@ ids:appEndpointDescription
     a owl:ObjectProperty ;
     rdfs:label "app endpoint description" @en;
     rdfs:comment """"References endpoints an IDs App provides.""" @en;
-    rdfs:domain ids:DataApp ;
+    rdfs:domain ids:AppResource ;
     rdfs:range ids:AppEndpoint ;
 .
