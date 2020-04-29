@@ -61,7 +61,7 @@ ids:connectorProxy
     rdfs:comment "The proxy an ids:Connector uses for network communication."@en ;
     .
 
-ids:ConfigurationModelLogLevel
+ids:configurationModelLogLevel
     a owl:ObjectProperty;
     rdfs:domain ids:ConfigurationModel;
     rdfs:range ids:ConfigurationModelLogLevel;
