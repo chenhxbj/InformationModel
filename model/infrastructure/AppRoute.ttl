@@ -42,5 +42,5 @@ ids:appRouteConfiguration
     rdfs:label "app route configuration";
     rdfs:comment "Configuration details of an app route" ;
     rdfs:domain ids:AppRoute ;
-    rdfs:range xsd:string ;
+    rdfs:range xsd:base64Binary ;
 .
